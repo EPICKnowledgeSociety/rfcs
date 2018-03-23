@@ -8,14 +8,13 @@ The Loopback Transport protocol is a technique for transporting value over the I
 
 ## One-shot Flow
 
-1. The loopback connection is established out of band. For instance, the application layer protocol may allow the receiver to specify a [BTP/2.0](../0023-bilateral-transfer-protocol/0023-bilateral-transfer-protocol.md) URL for the sender to connect to.
+1. The loopback connection is established out of band (see also [discovery](#discovery)). For instance, the application layer protocol may allow the receiver to specify a [BTP/2.0](../0023-bilateral-transfer-protocol/0023-bilateral-transfer-protocol.md) URL for the sender to connect to.
 1. The sender discovers the loopback address using [IL-DCP](https://github.com/interledgerjs/ilp-protocol-ildcp).
 1. The sender's application layer protocol tells the LT module to send a payment for a given source amount, minimum destination amount, and expiry time.
 1. The sender chooses a fulfillment at random.
 1. The sender creates the condition of their payment by computing the SHA-256 hash of the fulfillment.
 1. The sender sets the destination address to the loopback address for this lookback link.
-1. The sender sets a unique identifier as the data for the payment
-1. Using this condition, address, amount, and data, the sender prepares an ILPv4 payment to a connector of her choice.
+1. Using this condition, address, and amount, the sender prepares an ILPv4 payment to a connector of her choice.
 1. The payment will find its way from this connector, via any number of additional connectors, to the receiver.
 1. The receiver checks that the destination address matches the loopback address he announced to the sender earlier, and forwards the ILPv4 `prepare` message to the sender, over the loopback link.
 1. The sender's LT module checks the destination amount and the time left before expiry are sufficient, and if so, uses the fulfillment to fulfill the payment.
