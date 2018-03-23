@@ -36,7 +36,7 @@ For the main reference implementation of the ILP stack, see [Interledger.js](htt
 
 ## Protocols Built Upon ILP
 
-* **[29: Loopback Transport (LT)](0029-loopback-transport/0029-loopback-transport.md)**
+* **[29: Loopback Transport (LT) and Loopback Server Discovery (LSD)](0029-loopback-transport/0029-loopback-transport.md)**
 
   One of the recommended Transport Layer protocols for most use cases, which handles quoting, individual payments, chunked payments, and streaming payments using a loopback link between the sender and receiver.
 
