@@ -1,6 +1,6 @@
 ---
 title: Payment Pointers
-draft: 1
+draft: 2
 ---
 # Payment Pointers and Payment Setup Protocols
 
