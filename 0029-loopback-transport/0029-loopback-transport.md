@@ -38,3 +38,14 @@ Once the loopback link is up, and each party who wants to act as a sender knows 
 It is up to the application layer protocol to decide how much to send, and whether to use a one-shot or a chunked flow.
 
 In future, hooks may be provided through which the application layer can also decide to reject incoming payments instead of looping them back to the appropriate sender.
+
+## Discovery
+
+A loopback server can be defined in the Loopback Server Definition (LSD) format, whose mime-type is `application/lsd+json`:
+
+```js
+{
+  loopback: 'wss+btp://token@example.com/'
+  protocol: 'BTP/2.0'
+}
+```
